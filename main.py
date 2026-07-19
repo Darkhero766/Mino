@@ -25,8 +25,15 @@ def home():
    #     st.session_state.stage = "read"
 
         st.session_state.upload = files
-        
+
+        st.session_state.date = pd.read_csv(st.session_state.upload)
+
        # st.rerun()
+
+    if st.button("Know it"):
+        st.session_state.stage = "function"
+
+    st.write(" ")
 
     if st.button("Read It"):
         st.session_state.stage = "read"
@@ -44,9 +51,9 @@ def read():
     st.write(" ")
     #st.session_state.upload.see
 
-    date = pd.read_csv(st.session_state.upload)
+    data = st.session_state.date
 
-    st.dataframe(date)
+    st.dataframe(data)
 
     st.write(" ")
 
@@ -56,7 +63,7 @@ def read():
 def analyse():
     st.header("Analysis")
 
-    data = pd.read_csv(st.session_state.upload)
+    data = st.session_state.date
     st.write(" ")
 
     column = "amount"
@@ -96,8 +103,27 @@ def analyse():
 
     if st.button("Return To Home"):
         st.session_state.stage = "home"
-def draw():
-    pass 
+def function():
+    st.header("How its Work")
+
+    st.write(" ")
+
+    st.subheader("1. Upload The csv Expense .")
+
+    st.subheader("2. Its Scan the Copy (csv) then Finds the column 'Amount' .")
+
+    st.write(" ")
+
+    st.subheader("3. Read - It display Your Csv File .")
+
+    st.write(" ")
+
+    st.subheader("4. Analyse -  It reads csv , finds total sum , Total transaction,  and all")
+
+    if st.button("Return To Home"):
+        st.session_state.stage = "home"
+
+    
 
 if st.session_state.stage == "home":
     home()
@@ -106,5 +132,9 @@ elif st.session_state.stage == "read":
 
 elif st.session_state.stage == "analyse":
     analyse()
+
+elif st.session_state.stage == "function":
+    function()
+
 
     

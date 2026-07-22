@@ -20,4 +20,4 @@ It reads the Csv file only Right now Only. Show that csv data like an image to y
 ## Motivation
  want to be giod at data handling si started this as source . i love this project *But I had to leave this Early Because of my health issue* sorry.
 
-![image](https://l4.dunkirk.sh/i/teJHKjy7NMWF.webp)
+![image](https://l4.dunkirk.sh/i/cYTL1xOTIt1D.webp)
